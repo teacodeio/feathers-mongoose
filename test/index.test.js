@@ -519,19 +519,33 @@ describe('Feathers Mongoose Service', () => {
       name: 'Feathers!!!'
     };
 
-    it('calls mongoose pre save hook when creating document', (done) => {
-      hooks.create(data)
-        .then(() => {
-          expect(callbackSave).to.be.calledOnce
-          done()
-        })
-    })
-
     it('calls mongoose pre remove hook when removing document', (done) => {
+      callbackRemove.resetHistory();
       hooks.create(data)
         .then(hook => hooks.remove(hook._id))
         .then(() => {
-          expect(callbackRemove).to.be.calledOnce
+          expect(callbackRemove).to.be.calledOnce;
+          done();
+        })
+    })
+
+    it('calls mongoose pre save hook when creating document', (done) => {
+      callbackSave.resetHistory();
+      hooks.create(data)
+        .then(() => {
+          expect(callbackSave).to.be.calledOnce;
+          done();
+        })
+    })
+
+    it('calls mongoose pre save hook when updating document', (done) => {
+      hooks.create(data)
+        .then(hook => {
+          callbackSave.resetHistory();
+          return hooks.update(hook._id, {name: 'Feathers!!! Updated'});
+        })
+        .then((newHook) => {
+          expect(callbackSave).to.be.calledOnce;
           done()
         })
     })
