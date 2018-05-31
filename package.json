@@ -2,7 +2,7 @@
   "name": "@teacode/feathers-mongoose",
   "description": "A Feathers service adapter for the Mongoose ORM",
   "version": "6.1.1",
-  "homepage": "https://github.com/feathersjs-ecosystem/feathers-mongoose",
+  "homepage": "https://github.com/teacodeio/feathers-mongoose",
   "main": "lib/",
   "keywords": [
     "feathers",
@@ -18,7 +18,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/feathersjs-ecosystem/feathers-mongoose.git"
+    "url": "git://github.com/teacodeio/feathers-mongoose.git"
   },
   "author": "Feathers contributors <hello@feathersjs.com> (https://feathersjs.com)",
   "contributors": [
