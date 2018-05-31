@@ -1,5 +1,5 @@
 {
-  "name": "feathers-mongoose",
+  "name": "@teacode/feathers-mongoose",
   "description": "A Feathers service adapter for the Mongoose ORM",
   "version": "6.1.1",
   "homepage": "https://github.com/feathersjs-ecosystem/feathers-mongoose",
@@ -20,11 +20,7 @@
     "type": "git",
     "url": "git://github.com/feathersjs-ecosystem/feathers-mongoose.git"
   },
-  "author": {
-    "name": "Feathers contributors",
-    "email": "hello@feathersjs.com",
-    "url": "https://feathersjs.com"
-  },
+  "author": "Feathers contributors <hello@feathersjs.com> (https://feathersjs.com)",
   "contributors": [
     "Eric Kryski <e.kryski@gmail.com> (http://erickryski.com)",
     "Glavin Wiechert <glavin.wiechert@gmail.com> (https://github.com/Glavin001)",
@@ -54,7 +50,8 @@
     ]
   },
   "directories": {
-    "lib": "lib"
+    "lib": "lib",
+    "test": "test"
   },
   "dependencies": {
     "@feathersjs/commons": "^1.3.0",
