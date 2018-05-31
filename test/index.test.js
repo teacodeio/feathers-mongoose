@@ -1,7 +1,9 @@
 /* eslint-disable no-unused-expressions */
 const { expect } = require('chai');
+const sinon = require('sinon');
 const { base, orm } = require('feathers-service-tests');
 const mongoose = require('mongoose');
+const Schema = mongoose.Schema;
 
 const errors = require('@feathersjs/errors');
 const feathers = require('@feathersjs/feathers');
@@ -17,6 +19,19 @@ const {
   TextPost
 } = require('./models');
 
+// hooks model
+const callbackRemove = sinon.stub();
+const callbackSave = sinon.stub();
+
+const HooksSchema = new Schema({
+  name: { type: String, required: true }
+});
+
+HooksSchema.pre('remove', callbackRemove);
+HooksSchema.pre('save', callbackSave);
+
+const Hooks = mongoose.model('Hooks', HooksSchema);
+
 const _ids = {};
 const _petIds = {};
 const app = feathers()
@@ -30,12 +45,14 @@ const app = feathers()
   .use('/pets', adapter({ Model: Pet, lean: false }))
   .use('/people2', adapter({ Model: User }))
   .use('/pets2', adapter({ Model: Pet }))
-  .use('/posts', adapter({ Model: Post, discriminators: [TextPost] }));
+  .use('/posts', adapter({ Model: Post, discriminators: [TextPost] }))
+  .use('/hooks', adapter({ Model: Hooks}));
 const people = app.service('people');
 const pets = app.service('pets');
 const leanPeople = app.service('people2');
 const leanPets = app.service('pets2');
 const posts = app.service('posts');
+const hooks = app.service('hooks');
 
 // Tell mongoose to use native promises
 // See http://mongoosejs.com/docs/promises.html
@@ -495,5 +512,29 @@ describe('Feathers Mongoose Service', () => {
 
     base(app, errors, 'peeps', '_id');
     base(app, errors, 'peeps-customid', 'customid');
+  });
+
+  describe('Mongoose hooks', () => {
+    const data = {
+      name: 'Feathers!!!'
+    };
+
+    it('calls mongoose pre save hook when creating document', (done) => {
+      hooks.create(data)
+        .then(() => {
+          expect(callbackSave).to.be.calledOnce
+          done()
+        })
+    })
+
+    it('calls mongoose pre remove hook when removing document', (done) => {
+      hooks.create(data)
+        .then(hook => hooks.remove(hook._id))
+        .then(() => {
+          expect(callbackRemove).to.be.calledOnce
+          done()
+        })
+    })
+
   });
 });
