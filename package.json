@@ -1,7 +1,7 @@
 {
   "name": "@teacode/feathers-mongoose-teacode",
   "description": "A Feathers service adapter for the Mongoose ORM",
-  "version": "6.1.1",
+  "version": "7.0.0",
   "homepage": "https://github.com/teacodeio/feathers-mongoose",
   "main": "lib/",
   "keywords": [
