@@ -1,15 +1,13 @@
-# feathers-mongoose
+# @teacode/feathers-mongoose-teacode
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/feathersjs-ecosystem/feathers-mongoose.svg)](https://greenkeeper.io/)
-
-[![Build Status](https://travis-ci.org/feathersjs-ecosystem/feathers-mongoose.png?branch=master)](https://travis-ci.org/feathersjs-ecosystem/feathers-mongoose)
-[![Dependency Status](https://img.shields.io/david/feathersjs-ecosystem/feathers-mongoose.svg?style=flat-square)](https://david-dm.org/feathersjs-ecosystem/feathers-mongoose)
-[![Download Status](https://img.shields.io/npm/dm/feathers-mongoose.svg?style=flat-square)](https://www.npmjs.com/package/feathers-mongoose)
+[![Download Status](https://img.shields.io/npm/dm/feathers-mongoose.svg?style=flat-square)](https://www.npmjs.com/package/@teacode/feathers-mongoose-teacode)
 
 A [Feathers](https://feathersjs.com) database adapter for [Mongoose](http://mongoosejs.com/), an object modeling tool for [MongoDB](https://www.mongodb.org/).
 
+> __Important:__ It's forked from [feather-mongoose] (https://github.com/feathersjs-ecosystem/feathers-mongoose) changing code to trigger pre save and pre remove hooks in mongoose.
+
 ```bash
-$ npm install --save mongoose feathers-mongoose
+$ npm install --save mongoose @teacode/feathers-mongoose-teacode
 ```
 
 > __Important:__ `feathers-mongoose` implements the [Feathers Common database adapter API](https://docs.feathersjs.com/api/databases/common.html) and [querying syntax](https://docs.feathersjs.com/api/databases/querying.html).
