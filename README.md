@@ -1,7 +1,5 @@
 # @teacode/feathers-mongoose-teacode
 
-[![Download Status](https://img.shields.io/npm/dm/feathers-mongoose.svg?style=flat-square)](https://www.npmjs.com/package/@teacode/feathers-mongoose-teacode)
-
 A [Feathers](https://feathersjs.com) database adapter for [Mongoose](http://mongoosejs.com/), an object modeling tool for [MongoDB](https://www.mongodb.org/).
 
 > __Important:__ It's forked from [feather-mongoose] (https://github.com/feathersjs-ecosystem/feathers-mongoose) changing code to trigger pre save and pre remove hooks in mongoose.
