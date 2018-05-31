@@ -1,5 +1,5 @@
 {
-  "name": "@teacode/feathers-mongoose",
+  "name": "@teacode/feathers-mongoose-teacode",
   "description": "A Feathers service adapter for the Mongoose ORM",
   "version": "6.1.1",
   "homepage": "https://github.com/teacodeio/feathers-mongoose",
